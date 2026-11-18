@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA 6 پروگریس ٹریکر — اپنی پیش رفت ٹک کریں | GTA 6 اردو گائیڈ</title>
+<meta name="description" content="جی ٹی اے 6 پروگریس ٹریکر اردو میں: لانچ کی تیاری، لیونیڈا کے ریجنز اور کردار — ٹک کریں، آپ کی پیش رفت آپ کے فون میں محفوظ رہتی ہے۔">
+<link rel="canonical" href="https://kamran874.github.io/tracker.html">
+<meta property="og:title" content="GTA 6 پروگریس ٹریکر — اپنی پیش رفت ٹک کریں">
+<meta property="og:description" content="جی ٹی اے 6 پروگریس ٹریکر اردو میں: لانچ کی تیاری، لیونیڈا کے ریجنز اور کردار — ٹک کریں، آپ کی پیش رفت آپ کے فون میں محفوظ رہتی ہے۔">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ur_PK">
+<link rel="stylesheet" href="style.css">
+<!-- ADSENSE: paste your AdSense <script> tag here after approval -->
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="index.html"><span class="en">GTA 6</span> اردو گائیڈ</a>
+<nav><a href="index.html">ہوم</a><a href="release-time.html">ریلیز ٹائم</a><a href="characters.html">کردار</a><a href="map.html">نقشہ</a><a href="editions.html">قیمت و ایڈیشن</a><a href="tracker.html" class=active>پروگریس ٹریکر</a><a href="faq.html">سوال و جواب</a></nav>
+</div></header>
+<main>
+
+<h1><span class="en">GTA 6</span> پروگریس ٹریکر</h1>
+<p class="lead">جو کام ہو جائے اسے ٹک کریں۔ آپ کی پیش رفت اسی براؤزر میں محفوظ رہتی ہے — کوئی اکاؤنٹ نہیں چاہیے۔</p>
+<div class="card">
+<h3>کل پیش رفت: <span class="en" id="pct">0%</span></h3>
+<div class="progress"><div id="bar"></div></div>
+</div>
+<div class="ad"><!-- AdSense ad unit goes here --><span class="en">Ad</span></div>
+<div class="grid" style="margin-top:14px">
+<div class="card"><h3>لانچ کی تیاری <span class="tag en" id="prep-n"></span></h3><div id="prep"></div></div>
+<div class="card"><h3>ریجنز جو دیکھ لیے <span class="tag en" id="regions-n"></span></h3><div id="regions"></div></div>
+<div class="card"><h3>کردار جن سے ملاقات ہوئی <span class="tag en" id="people-n"></span></h3><div id="people"></div></div>
+</div>
+<p style="margin-top:14px"><button id="reset">سب صاف کریں</button></p>
+<div class="note">گیم آنے کے بعد اس ٹریکر میں مشنز، کلیکٹیبلز اور 100% کمپلیشن کی لسٹیں شامل کی جائیں گی۔</div>
+<div class="ad"><!-- AdSense ad unit goes here --><span class="en">Ad</span></div>
+
+</main>
+<footer>
+<p>یہ ایک غیر سرکاری فین ویب سائٹ ہے۔ ہمارا <span class="en">Rockstar Games</span> یا <span class="en">Take-Two</span> سے کوئی تعلق نہیں۔ <span class="en">Grand Theft Auto</span> ان کا ٹریڈ مارک ہے۔</p>
+<p><a href="about.html">ہمارے بارے میں</a><a href="privacy.html">پرائیویسی پالیسی</a><a href="contact.html">رابطہ</a></p>
+<p class="en">© 2026 GTA 6 Urdu Guide</p>
+</footer>
+<script>
+(function(){
+  var LISTS = {
+    prep:['گیم پری لوڈ کر لیا (تقریباً 210 GB)','کنسول سسٹم اپڈیٹ کر لیا','اسٹوریج میں کافی جگہ خالی کر لی','ریسٹ موڈ میں انٹرنیٹ آن رکھا','لوڈ شیڈنگ کے لیے UPS تیار','اپنے ریجن کا ان لاک ٹائم چیک کر لیا'],
+    regions:['وائس سٹی','لیونیڈا کیز','گراس ریورز','پورٹ گیلہورن','ایمبروزیا','ماؤنٹ کالاگا نیشنل پارک'],
+    people:['لوسیا کامینوس','جیسن ڈووال','کیل ہیمپٹن','برائن ہیڈر','بوبی آئیک','ڈری کوان پریسٹ','ریئل ڈائمز','راؤل بوتیستا']
+  };
+  var KEY='gta6urdu-tracker-v1', state={};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ state = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} }
+  function render(id){
+    var box=document.getElementById(id), items=LISTS[id], done=0; box.innerHTML='';
+    items.forEach(function(t,i){
+      var k=id+'-'+i, on=!!state[k]; if(on) done++;
+      var l=document.createElement('label'); l.className='check'+(on?' done':'');
+      var c=document.createElement('input'); c.type='checkbox'; c.checked=on;
+      c.onchange=function(){ state[k]=c.checked; save(); render(id); total(); };
+      var s=document.createElement('span'); s.textContent=t;
+      l.appendChild(c); l.appendChild(s); box.appendChild(l);
+    });
+    document.getElementById(id+'-n').textContent = done+' / '+items.length;
+  }
+  function total(){
+    var all=0, d=0;
+    for (var id in LISTS){ LISTS[id].forEach(function(_,i){ all++; if(state[id+'-'+i]) d++; }); }
+    var p=Math.round(d*100/all);
+    document.getElementById('bar').style.width=p+'%';
+    document.getElementById('pct').textContent=p+'%';
+  }
+  for (var id in LISTS) render(id);
+  total();
+  document.getElementById('reset').onclick=function(){ state={}; save(); for (var id in LISTS) render(id); total(); };
+})();
+</script>
+</body>
+</html>

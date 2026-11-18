@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+:root{
+  --bg:#0f0a1e; --card:#1a1230; --line:#2e2350;
+  --pink:#ff4fa3; --orange:#ffb347; --cyan:#3fe0d0;
+  --text:#f3eefc; --muted:#b9aed6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Noto Nastaliq Urdu','Inter',serif;
+  font-size:18px; line-height:2.2; direction:rtl;
+}
+.en{font-family:'Inter',sans-serif; direction:ltr; unicode-bidi:isolate; line-height:1.5}
+a{color:var(--cyan); text-decoration:none}
+a:hover{text-decoration:underline}
+
+header{
+  background:linear-gradient(90deg,#2a0f3d,#3d0f2e 60%,#4a2410);
+  border-bottom:2px solid var(--pink); position:sticky; top:0; z-index:10;
+}
+.bar{max-width:1050px; margin:auto; padding:6px 16px; display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px}
+.logo{font-weight:700; font-size:22px; color:#fff}
+.logo .en{color:var(--pink); font-weight:700}
+nav{display:flex; flex-wrap:wrap; gap:4px 14px; font-size:16px}
+nav a{color:#fff}
+nav a.active{color:var(--orange)}
+
+main{max-width:1050px; margin:auto; padding:18px 16px 40px}
+h1{font-size:32px; line-height:2; margin:10px 0 4px;
+   background:linear-gradient(90deg,var(--pink),var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent}
+h2{font-size:24px; color:var(--orange); margin:30px 0 6px; line-height:2}
+h3{font-size:20px; color:var(--pink); margin:6px 0; line-height:2}
+p{margin:6px 0 12px}
+.lead{color:var(--muted); font-size:19px}
+.updated{color:var(--muted); font-size:14px}
+
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 18px}
+.card.link{display:block; color:var(--text); transition:border-color .2s}
+.card.link:hover{border-color:var(--pink); text-decoration:none}
+.tag{display:inline-block; font-size:13px; padding:0 10px; border-radius:20px; background:#2e1a4a; color:var(--cyan); line-height:2}
+
+table{width:100%; border-collapse:collapse; margin:10px 0 18px; background:var(--card); border-radius:12px; overflow:hidden}
+th,td{padding:8px 12px; border-bottom:1px solid var(--line); text-align:right; vertical-align:top}
+th{background:#24183f; color:var(--orange)}
+
+.note{border-right:4px solid var(--orange); background:#221634; padding:8px 14px; border-radius:8px; margin:12px 0}
+.ad{margin:22px 0; min-height:90px; border:1px dashed var(--line); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#5d527d; font-size:13px}
+
+/* tool */
+select,button{font:inherit; font-family:'Noto Nastaliq Urdu',serif; background:#24183f; color:var(--text); border:1px solid var(--line); border-radius:10px; padding:2px 14px}
+button{background:var(--pink); border-color:var(--pink); color:#fff; cursor:pointer}
+.big{font-size:30px; color:var(--orange); line-height:2}
+.count{font-family:'Inter',sans-serif; direction:ltr; font-size:34px; font-weight:700; color:var(--cyan); letter-spacing:1px}
+
+/* tracker */
+.progress{height:14px; background:#24183f; border-radius:10px; overflow:hidden; margin:6px 0 2px}
+.progress div{height:100%; width:0; background:linear-gradient(90deg,var(--pink),var(--orange)); transition:width .3s}
+.check{display:flex; gap:10px; align-items:flex-start; padding:4px 0; border-bottom:1px solid var(--line); cursor:pointer}
+.check:last-child{border-bottom:0}
+.check input{width:20px; height:20px; margin-top:12px; accent-color:var(--pink); flex:none}
+.check.done span{color:var(--muted); text-decoration:line-through}
+
+details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:4px 16px; margin:8px 0}
+summary{cursor:pointer; color:var(--orange); font-weight:700}
+
+footer{border-top:1px solid var(--line); color:var(--muted); font-size:14px; text-align:center; padding:18px 16px 30px}
+footer a{margin:0 8px}
+@media(max-width:600px){ body{font-size:16px} h1{font-size:26px} .count{font-size:26px} }
